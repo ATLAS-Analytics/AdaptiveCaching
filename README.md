@@ -31,4 +31,4 @@ Questions to be answered:
 
 ## Conclusions
 
-* if there is a sense to run pmerge jobs remotely, inputs need no caching. VP can be set to not create Virtual Placement for datasets starting with "panda.um."
+* VP has been set to not create Virtual Placement for datasets starting with "panda.um.". Source for pmerge jobs is always scratch disk. All of the VP queues have scratch disk mounted for r/w. That's why even with no VP replica, local pmerge jobs will run in VP queue. As long as scratch disk is local to the VP queue, these should not use xcache and be visible in gStream. Sites mounting remote scratch disk will still see pmerge jobs in xcache.
